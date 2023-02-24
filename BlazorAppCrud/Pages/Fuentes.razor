@@ -1,0 +1,52 @@
+﻿@page "/fuentes"
+@inject IFuenteService FuenteService
+@inject NavigationManager NavigationManager
+
+
+<h3>VideoFuentes</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fuente</th>
+            <th>Developer</th>
+            <th>Realease</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Fuente in FuenteService.Fuentes)
+        {
+            <tr>
+                <td>@Fuente.CadenaFuente</td>
+                <td>@Fuente.EntropiaDeLaFuente()</td>
+                <td>@Fuente.EntropiaMaxima()</td>
+                <td>
+                    <button class="btn btn-primary"
+                        @onclick="(()=> ShowFuente(Fuente.IdFuente))">
+                        <i class="oi oi-pencil"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button class="btn btn-primary" @onclick="CreateNewFuente">Create New Fuente</button>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await FuenteService.LoadFuentes();
+    }
+
+    void ShowFuente(string id)
+    {
+        NavigationManager.NavigateTo($"Fuente/{id}");
+    }
+
+    void CreateNewFuente()
+    {
+        NavigationManager.NavigateTo("Fuente");
+    }
+}
