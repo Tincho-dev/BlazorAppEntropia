@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BlazorAppCrud</RootNamespace>
+    <RootNamespace>EntropiaBlazor</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

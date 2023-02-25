@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
 
-namespace BlazorAppCrud.Data
+namespace EntropiaBlazor.Data
 {
     public class DataContext : DbContext
     {

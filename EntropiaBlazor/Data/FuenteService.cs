@@ -1,4 +1,4 @@
-﻿using BlazorAppCrud.Data;
+﻿using EntropiaBlazor.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
 using Models;

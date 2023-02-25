@@ -1,6 +1,5 @@
 ﻿@page "/Fuente"
 @page "/Fuente/{id}"
-@using static BlazorAppCrud.Pages.Fuente.Histograma;
 @inject IFuenteService FuenteService
 
 @if (Id == null)
@@ -25,8 +24,11 @@ else
 @if (Id != null)
 {
     <CadenaCodificada Fuente="@fuente"></CadenaCodificada>
+
     <Histograma Letras="@fuente.Letras"></Histograma>
+
     <Decodificador Fuente="@fuente"></Decodificador>
+
     <TablaLetras Letras="@fuente.Letras"></TablaLetras>    
 }
 

@@ -1,0 +1,27 @@
+﻿<RadzenCard class="rz-background-color-info-lighter" Style="margin-top:10px">
+
+
+<div id="Decodificador">
+    <h3>Decodificador</h3>
+
+    <label>Ingrese una secueincia de 0 y 1:</label>
+    <input type="text" @bind="Cadena" />
+    <button class="btn btn-primary" @onclick="@Decodificar">Decodificar</button>
+    <br />
+    <label>Palabra decodificada:</label>
+    <input type="text" contenteditable="false" @bind="CadenaDecodificada" />
+</div>
+    </RadzenCard>
+
+@code {
+    [Parameter]
+    public Models.Fuente fuente { get; set; }
+    string Cadena { get; set; } = string.Empty;
+    string CadenaDecodificada { get; set; } = string.Empty;
+
+    private async Task Decodificar()
+    {
+        CadenaDecodificada = fuente.DecodificarHuffman(Cadena);
+    }
+
+}

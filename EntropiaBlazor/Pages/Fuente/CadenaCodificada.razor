@@ -1,0 +1,41 @@
+﻿@inject IJSRuntime _jsInterop
+@inject NotificationService NotificationService
+<RadzenCard class="rz-background-color-info-lighter" Style="margin-top:10px">
+
+<div class="container-fluid">
+    <div class="row px-3">
+        <div class="col-lg-6 col-xl-4 p-3">
+            <h4>CadenaCodificada</h4>
+            <textarea cols="100" rows="@fuente.CodificarCadena()/100" contenteditable="false">@fuente.CodificarCadena()</textarea>
+            <RadzenButton Text="Copiar al Portapapeles" class="w-100"
+                          ButtonStyle="ButtonStyle.Info"
+                          Click=@(args =>{
+                          ShowNotification(
+                          new NotificationMessage {
+                          Severity = NotificationSeverity.Info,
+                          Summary = "Copiado",
+                          Detail = "Se copió el mensaje.",
+                          Duration = 4000 });
+                          CopyToClipboard();}) />
+        </div>
+    </div>
+</div>
+    </RadzenCard>
+
+
+@code {
+    [Parameter]
+    public Models.Fuente fuente { get; set; }
+
+
+    public async Task CopyToClipboard()
+    {
+        var text = fuente.CodificarCadena();
+        await _jsInterop.InvokeVoidAsync("navigator.clipboard.writeText", text);
+    }
+
+    void ShowNotification(NotificationMessage message)
+    {
+        NotificationService.Notify(message);
+    }
+}

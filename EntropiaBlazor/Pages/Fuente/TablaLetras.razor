@@ -1,0 +1,56 @@
+﻿@using Models;
+
+<RadzenCard class="rz-background-color-info-lighter" Style="margin-top:10px">
+
+
+<div id="tabla-letras">
+
+    <table class="table">
+        <tr>
+            <th>
+                Letra
+            </th>
+            <th>
+                Probabilidad
+            </th>
+            <th>
+                Informacion
+            </th>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Frecuencia de aparicion
+            </th>
+            <th></th>
+        </tr>
+    @foreach (var item in Letras.OrderByDescending(x => x.FrecuenciaDeAparicion))
+    {
+                <tr>
+                    <td>
+                @item.Name
+                    </td>
+                    <td>
+                @(
+                    (item.Probability * 100).ToString("0.##")
+                    ) %
+                    </td>
+                    <td>
+                @item.Information.ToString("0.##") bit
+                    </td>
+                    <td>
+                @item.Codigo
+                    </td>
+                    <td>
+                @item.FrecuenciaDeAparicion
+                    </td>
+                </tr>
+    }
+    </table>
+</div>
+    </RadzenCard>
+
+@code {
+    [Parameter]
+    public List<Letra> Letras { get; set; }
+}

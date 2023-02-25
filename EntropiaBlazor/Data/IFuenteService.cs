@@ -1,6 +1,6 @@
 ﻿using Models;
 
-namespace BlazorAppCrud.Data
+namespace EntropiaBlazor.Data
 {
     public interface IFuenteService
     {
