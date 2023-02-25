@@ -167,6 +167,7 @@ namespace Models
             huffmanTree.Build(CadenaFuente);
             Letras = huffmanTree.Encode(Letras);
         }
+
         public string DecodificarHuffman()
         {
             //Usamos el codigo de Huffman para crear el arbol
@@ -175,6 +176,17 @@ namespace Models
             //Hacemos un cambio de tipo para decodificar con el tipo de dato que necesita Huffman
             var CadenaCodificada = CodificarCadena();
             var res = new BitArray(CadenaCodificada.Select(c => c == '1').ToArray());
+            BitArray bits = new BitArray(res);
+
+            return huffmanTree.Decode(res);
+        }
+        public string DecodificarHuffman(string cadena)
+        {
+            //Usamos el codigo de Huffman para crear el arbol
+            HuffmanTree huffmanTree = new HuffmanTree();
+            huffmanTree.Build(CadenaFuente);
+            //Hacemos un cambio de tipo para decodificar con el tipo de dato que necesita Huffman
+            var res = new BitArray(cadena.Select(c => c == '1').ToArray());
             BitArray bits = new BitArray(res);
 
             return huffmanTree.Decode(res);

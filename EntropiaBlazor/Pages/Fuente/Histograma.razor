@@ -10,12 +10,12 @@
             </RadzenCard>
             <h4>Auto-size column series</h4>
             <RadzenChart>
-                <RadzenColumnSeries Data="@Letras" CategoryProperty="Name" Title="" LineType="LineType.Dashed" ValueProperty="FrecuenciaDeAparicion">
+                <RadzenColumnSeries Data="@Letras" CategoryProperty="Name" Title="Probabilidades" LineType="LineType.Dashed" ValueProperty="Probability">
                     <RadzenSeriesDataLabels Visible="@showDataLabels" />
                 </RadzenColumnSeries>
 
                 <RadzenColumnOptions Radius="5" />
-                <RadzenValueAxis>
+                <RadzenValueAxis Formatter="@FormatAsPercent">
                     <RadzenGridLines Visible="true" />
                     <RadzenAxisTitle Text="Frecuencia" />
                 </RadzenValueAxis>
@@ -42,11 +42,8 @@
     [Parameter]
     public List<Letra> Letras { get; set; }
     
-    //public DataItem[] Data { get; set; }
-
-    //public class DataItem
-    //{
-    //    public string Simbolo { get; set; }
-    //    public int Frecuencia { get; set; }
-    //}
+    string FormatAsPercent(object value)
+    {
+        return ((double)value*100).ToString("0.##")+"%";
+    }
 }
