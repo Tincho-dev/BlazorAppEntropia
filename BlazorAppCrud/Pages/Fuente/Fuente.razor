@@ -1,30 +1,66 @@
 ﻿@page "/Fuente"
 @page "/Fuente/{id}"
+@using static BlazorAppCrud.Pages.Fuente.Histograma;
 @inject IFuenteService FuenteService
 
 @if (Id == null)
 {
     <h3>Create a new Fuente</h3>
-
 }
 else
 {
-    <h3>Edit "@fuente.IdFuente"!</h3>
+    <h3>Detalles de la Fuente: </h3>
+    <Histograma Data="@Data.ToArray()"></Histograma>
 }
 
 <EditForm Model="fuente" OnSubmit="HadleSubmit">
     <div>
         <label for="cadenaFuente">Cadena Fuente</label>
-        <InputText id="cadenaFuente" @bind-Value="fuente.CadenaFuente" class="form-control"></InputText>
+        <InputTextArea id="cadenaFuente" @bind-Value="fuente.CadenaFuente" class="form-control" spellcheck="false" rows="@(fuente.CadenaFuente.Length/120  )"></InputTextArea>
     </div>
-    @*<div>
-        <label for="developer">Developer</label>
-        <InputText id="developer" @bind-Value="Fuente.Developer" class="form-control"></InputText>
-    </div>
-    <div>
-        <label for="release">Release</label>
-        <InputDate id="release" @bind-Value="Fuente.Release" class="form-control"></InputDate>
-    </div>*@
+
+    <table class="table">
+        <tr>
+            <th>
+                Letra
+            </th>
+            <th>
+                Probabilidad
+            </th>
+            <th>
+                Informacion
+            </th>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Frecuencia de aparicion
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in fuente.Letras.OrderByDescending(x => x.FrecuenciaDeAparicion))
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @(
+                    (item.Probability * 100).ToString("0.##")
+                    ) %
+                </td>
+                <td>
+                    @item.Information.ToString("0.##") bit
+                </td>
+                <td>
+                    @item.Codigo
+                </td>
+                <td>
+                    @item.FrecuenciaDeAparicion
+                </td>
+            </tr>
+        }
+    </table>
     <br />
     <button type="submit" class="btn btn-primary">@btnText</button>
     <button type="button" class="btn btn-danger" @onclick="DeleteFuente">Delete Fuente</button>
@@ -40,17 +76,28 @@ else
 
     Models.Fuente fuente = new();
 
+    List<DataItem> Data;
+
     protected override void OnInitialized()
     {
         btnText = Id == null ? "Save New Fuente" : "Update Fuente";
-    }
 
+        if (Id != null)
+        {
+            Data = new List<DataItem>();
+            foreach (var item in fuente.Letras)
+            {
+                Data.Add(new DataItem{Simbolo = item.Name, Frecuencia = item.FrecuenciaDeAparicion });
+            }
+        }
+    }
 
     protected override async Task OnParametersSetAsync()
     {
         if (Id != null)
         {
             fuente = await FuenteService.GetSingleFuente((string) Id);
+            fuente = new Models.Fuente(fuente.CadenaFuente);
         }
     }
 
@@ -70,4 +117,5 @@ else
     {
         await FuenteService.DeleteFuente(fuente.IdFuente);
     }
+
 }
