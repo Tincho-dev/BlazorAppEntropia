@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using Models;
 
 <div class="container">
     <div class="row">
@@ -9,7 +10,7 @@
             </RadzenCard>
             <h4>Auto-size column series</h4>
             <RadzenChart>
-                <RadzenColumnSeries Data="@Data" CategoryProperty="Simbolo" Title="" LineType="LineType.Dashed" ValueProperty="Frecuencia">
+                <RadzenColumnSeries Data="@Letras" CategoryProperty="Name" Title="" LineType="LineType.Dashed" ValueProperty="FrecuenciaDeAparicion">
                     <RadzenSeriesDataLabels Visible="@showDataLabels" />
                 </RadzenColumnSeries>
 
@@ -39,11 +40,13 @@
     bool showDataLabels = false;
 
     [Parameter]
-    public DataItem[] Data { get; set; }
+    public List<Letra> Letras { get; set; }
+    
+    //public DataItem[] Data { get; set; }
 
-    public class DataItem
-    {
-        public string Simbolo { get; set; }
-        public int Frecuencia { get; set; }
-    }
+    //public class DataItem
+    //{
+    //    public string Simbolo { get; set; }
+    //    public int Frecuencia { get; set; }
+    //}
 }

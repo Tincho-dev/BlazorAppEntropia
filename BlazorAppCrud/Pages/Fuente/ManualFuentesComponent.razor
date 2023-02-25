@@ -1,13 +1,4 @@
-﻿@*@model IEnumerable<Models.Fuente>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Fuentes</h2>
-<div style="display:block;">
-    <p><a class="btn" href='@Url.Action("Create", "Fuente")'>Crear Fuente &raquo;</a></p>
-    <!-- Button trigger modal -->
+﻿<!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="width:100px; float:right; margin-bottom:10px;">
         Manual
     </button>
@@ -39,56 +30,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
                 </div>
             </div>
         </div>
     </div>
-    <table class="table">
-        <tr>
-            <th>
-                Numero de Simbolos posibles
-            </th>
-            <th>
-                Cadena Generadora
-            </th>
-            <th>
-                Entropia Maxima
-            </th>
-            <th>
-                    Cadena Codificada
-                </th>
-            <th>
-                Entropia de la Fuente
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.N)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CadenaFuente)
-                </td>
-                <td>
-                    @item.EntropiaMaxima.ToString("0.##")
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.CadenaCodificada)
-                    </td>
-                <td>
-                    @item.EntropiaDeLaFuente.ToString("0.##")
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.IdFuente }, new { @class = "btn" }) |
-                    @Html.ActionLink("Detalle", "Details", new { id = item.IdFuente }, new { @class = "btn" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IdFuente }, new { @class = "btn" })
-                </td>
-            </tr>
-        }
-
-    </table>
-</div>*@

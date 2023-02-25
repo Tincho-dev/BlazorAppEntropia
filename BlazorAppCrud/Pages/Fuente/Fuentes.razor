@@ -3,14 +3,18 @@
 @inject NavigationManager NavigationManager
 
 
-<h3>VideoFuentes</h3>
+<h3>Fuentes</h3>
+<button class="btn btn-primary" @onclick="CreateNewFuente">Create New Fuente</button>
+
+<ManualFuentesComponent></ManualFuentesComponent>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Fuente</th>
-            <th>Developer</th>
-            <th>Realease</th>
+            <th>Numero de Simbolos</th>
+            <th>Cadena Generadora</th>
+            <th>Entropia Maxima</th>
+            <th>Entropia de la Fuente</th>
             <th></th>
         </tr>
     </thead>
@@ -18,9 +22,10 @@
         @foreach (var Fuente in FuenteService.Fuentes)
         {
             <tr>
+                <td>@Fuente.Letras.Count</td>
                 <td>@Fuente.CadenaFuente</td>
-                <td>@Fuente.EntropiaDeLaFuente()</td>
-                <td>@Fuente.EntropiaMaxima()</td>
+                <td>@Fuente.EntropiaMaxima().ToString("0.##")</td>
+                <td>@Fuente.EntropiaDeLaFuente().ToString("0.##")</td>
                 <td>
                     <button class="btn btn-primary"
                         @onclick="(()=> ShowFuente(Fuente.IdFuente))">
@@ -31,7 +36,6 @@
         }
     </tbody>
 </table>
-<button class="btn btn-primary" @onclick="CreateNewFuente">Create New Fuente</button>
 
 
 @code {

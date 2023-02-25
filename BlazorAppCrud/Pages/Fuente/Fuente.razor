@@ -10,7 +10,7 @@
 else
 {
     <h3>Detalles de la Fuente: </h3>
-    <Histograma Data="@Data.ToArray()"></Histograma>
+    <Histograma Letras="@fuente.Letras"></Histograma>
 }
 
 <EditForm Model="fuente" OnSubmit="HadleSubmit">
@@ -76,7 +76,6 @@ else
 
     Models.Fuente fuente = new();
 
-    List<DataItem> Data;
 
     protected override void OnInitialized()
     {
@@ -84,11 +83,6 @@ else
 
         if (Id != null)
         {
-            Data = new List<DataItem>();
-            foreach (var item in fuente.Letras)
-            {
-                Data.Add(new DataItem{Simbolo = item.Name, Frecuencia = item.FrecuenciaDeAparicion });
-            }
         }
     }
 

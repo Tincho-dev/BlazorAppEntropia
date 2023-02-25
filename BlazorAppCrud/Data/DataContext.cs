@@ -9,25 +9,13 @@ namespace BlazorAppCrud.Data
         {
 
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Game>().HasData(
-                    new Game { Id = 1, Name = "Half Life 2", Developer = "Valve", Release = new DateTime(2004, 11, 16) },
-                    new Game { 
-                        Id = 2, 
-                        Name = "Day of the Tentacles", 
-                        Developer = "Lucas Arts", 
-                        Release = new DateTime(1993,5,25)
-                    }
-                );
-
-
-        } 
-
-        public DbSet<Game> Games => Set<Game>();
+            modelBuilder.Entity<Fuente>().HasData(
+                new Fuente { CadenaFuente = "Esta es una fuente ya en memoria" },
+                new Fuente { CadenaFuente = "Este texto representa el libro del quijote de la mancha" }
+            );
+        }
         public DbSet<Fuente> Fuentes => Set<Fuente>();
-        public DbSet<Letra> Letras => Set<Letra>();
-        
     }
 }
