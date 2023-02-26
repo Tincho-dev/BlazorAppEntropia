@@ -1,0 +1,54 @@
+﻿@inject IFuenteService FuenteService
+@inject NavigationManager NavigationManager
+
+<h3>Fuentes</h3>
+<button class="btn btn-primary rz-ripple rz-shadow-2 rz-border-radius-6" @onclick="CreateNewFuente">Crear Nueva Fuente</button>
+
+<ManualFuentesComponent></ManualFuentesComponent>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Numero de Simbolos</th>
+            <th>Cadena Generadora</th>
+            <th>Entropia Maxima</th>
+            <th>Entropia de la Fuente</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Fuente in FuenteService.Fuentes)
+        {
+            <tr>
+                <td>@Fuente.Letras.Count</td>
+                <td>@Fuente.CadenaFuente</td>
+                <td>@Fuente.EntropiaMaxima().ToString("0.##")</td>
+                <td>@Fuente.EntropiaDeLaFuente().ToString("0.##")</td>
+                <td>
+                    <button class="btn btn-primary"
+                        @onclick="(()=> ShowFuente(Fuente.IdFuente))">
+                        <i class="oi oi-pencil"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await FuenteService.LoadFuentes();
+    }
+
+    void ShowFuente(string id)
+    {
+        NavigationManager.NavigateTo($"Fuente/{id}");
+    }
+
+    void CreateNewFuente()
+    {
+        NavigationManager.NavigateTo("Fuente");
+    }
+}

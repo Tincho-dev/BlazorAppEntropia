@@ -17,8 +17,8 @@ else
         <InputTextArea id="cadenaFuente" @bind-Value="fuente.CadenaFuente" class="form-control" spellcheck="false" rows="@(fuente.CadenaFuente.Length/120  )"></InputTextArea>
     </div>
     <br />
-    <button type="submit" class="btn btn-primary">@btnText</button>
-    <button type="button" class="btn btn-danger" @onclick="DeleteFuente">Delete Fuente</button>
+    <button type="submit" class="btn btn-primary rz-ripple rz-shadow-2 rz-border-radius-6 ">@btnText</button>
+    <button type="button" class="btn btn-danger rz-ripple rz-shadow-2 rz-border-radius-6" @onclick="DeleteFuente">Delete Fuente</button>
 </EditForm>
 
 @if (Id != null)

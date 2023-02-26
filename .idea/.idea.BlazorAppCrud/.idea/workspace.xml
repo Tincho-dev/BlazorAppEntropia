@@ -7,55 +7,14 @@
     <projectFile pubXmlPath="EntropiaBlazor/Properties/PublishProfiles/FTPProfile.pubxml">EntropiaBlazor/EntropiaBlazor.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="567e437e-2ec8-4f1b-96a0-a716b06b2a10" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/Index.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud.sln" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/App.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/BlazorAppCrud.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/EntropiaBlazor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Data/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Data/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Data/Domain/Fuente.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Data/Domain/Fuente.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Data/Domain/Letra.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Data/Domain/Letra.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Data/FuenteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Data/FuenteService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Data/Huffman/HuffmanTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Data/Huffman/HuffmanTree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Data/Huffman/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Data/Huffman/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Data/IFuenteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Data/IFuenteService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/Error.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/Error.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/Error.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/Fuente/Fuente.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/Fuente/Fuente.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/Fuente/Fuentes.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/Fuente/Fuentes.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/Fuente/Histograma.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/Fuente/Histograma.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/Fuente/ManualFuentesComponent.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/Fuente/ManualFuentesComponent.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/Index.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/_Host.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Pages/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Pages/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Shared/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Shared/MainLayout.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Shared/MainLayout.razor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Shared/NavMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Shared/NavMenu.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Shared/NavMenu.razor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/Shared/SurveyPrompt.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/Shared/SurveyPrompt.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/_Imports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/bootstrap/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/bootstrap/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/bootstrap/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/FONT-LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/FONT-LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/ICON-LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/ICON-LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorAppCrud/wwwroot/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/EntropiaBlazor/wwwroot/favicon.ico" afterDir="false" />
-    </list>
+    <list default="true" id="567e437e-2ec8-4f1b-96a0-a716b06b2a10" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/EntropiaBlazor/Shared/MainLayout.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2MFCKRqLBjPGxv2iOxdweXoGw3Y" />
   <component name="ProjectViewState">
@@ -118,7 +77,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677353882571</updated>
-      <workItem from="1677353884733" duration="380000" />
+      <workItem from="1677353884733" duration="971000" />
     </task>
     <servers />
   </component>
