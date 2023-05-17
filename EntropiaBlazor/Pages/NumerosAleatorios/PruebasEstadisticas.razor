@@ -1,0 +1,105 @@
+﻿@using GeneradorNumerosAleatorios.BLazorMAUI.Services
+@inject IPruebasEstadisticasService PruebasEstadisticasService
+<div class="card mt-3" style="@ResultadoTarjetaEstilo">
+    <div class="card-body">
+        <h4>Pruebas Estadísticas</h4>
+
+        <div>
+            <label>Seleccione una prueba estadística:</label>
+            <select class="form-control" @bind="pruebaSeleccionada">
+                <option value="Promedios">Promedios</option>
+                <option value="Frecuencia">Frecuencia</option>
+                <option value="Serie">Serie</option>
+                <option value="Ks">Kolmogorov-Smirnov</option>
+                <option value="Corrida">Corrida Arriba y Corrida Media</option>
+            </select>
+        </div>
+
+        @if (pruebaSeleccionada == "Promedios")
+        {
+            <div>
+                <label>Valor de referencia (Zc):</label>
+                <input type="number" class="form-control" @bind="@valorReferencia" />
+            </div>
+        }
+        else if (pruebaSeleccionada == "Frecuencia")
+        {
+            <div>
+                <label>Cantidad de intervalos:</label>
+                <input type="number" class="form-control" @bind="@cantidadIntervalos" />
+            </div>
+            <div>
+                <label>Valor de referencia (Chi Cuadrado):</label>
+                <input type="number" class="form-control" @bind="@valorReferencia" />
+            </div>
+        }
+        else if (pruebaSeleccionada == "Serie")
+        {
+            <div>
+                <label>Valor de referencia (estadístico):</label>
+                <input type="number" class="form-control" @bind="@valorReferencia" />
+            </div>
+            <div>
+                <label>Valor de X:</label>
+                <input type="number" class="form-control" @bind="@valorX" />
+            </div>
+        }
+        else if (pruebaSeleccionada == "Ks")
+        {
+            <div>
+                <label>Valor de referencia (estadístico):</label>
+                <input type="number" class="form-control" @bind="@valorReferencia" />
+            </div>
+        }
+        else if (pruebaSeleccionada == "Corrida")
+        {
+            <div>
+                <label>Valor de referencia (estadístico):</label>
+                <input type="number" class="form-control" @bind="@valorReferencia" />
+            </div>
+        }
+
+        <div class="mt-3">
+            <button class="btn btn-primary" @onclick="RealizarPruebas">Realizar Prueba</button>
+        </div>
+
+        @if (mostrarResultado)
+        {
+            <div class="mt-3" style="color: @ResultadoMensajeEstilo">
+                @ResultadoMensaje
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public List<double> Numeros { get; set; } = new();
+
+    private string pruebaSeleccionada = "Promedios";
+    private double valorReferencia;
+    private int cantidadIntervalos;
+    private int valorX;
+    private bool mostrarResultado = false;
+
+    private bool resultadoExitoso = false;
+    private string ResultadoMensaje => resultadoExitoso ? "No se puede rechazar la hipótesis de que los números generados provienen de un universo uniformemente distribuido." : "Se Rechaza la hipótesis de que los números generados provienen de un universo uniformemente distribuido.";
+    private string ResultadoTarjetaEstilo => resultadoExitoso ? "background-color: lightgreen;" : "";
+    private string ResultadoMensajeEstilo => resultadoExitoso ? "green" : "red";
+
+    private void RealizarPruebas()
+    {
+        resultadoExitoso = false;
+
+        resultadoExitoso = pruebaSeleccionada switch
+        {
+            "Promedios" => PruebasEstadisticasService.Promedios(Numeros, valorReferencia),
+            "Frecuencia" => PruebasEstadisticasService.Frecuencia(Numeros, cantidadIntervalos, valorReferencia),
+            "Serie" => PruebasEstadisticasService.Serie(Numeros, valorX, valorReferencia),
+            "Ks" => PruebasEstadisticasService.Ks(Numeros, valorReferencia),
+            "Corrida" => PruebasEstadisticasService.CorridaArribaYCorridaMedia(Numeros, valorReferencia),
+            _ => false
+        };
+        mostrarResultado = true;
+    }
+}

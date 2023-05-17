@@ -1,5 +1,7 @@
 using EntropiaBlazor.Data;
+using GeneradorNumerosAleatorios.BLazorMAUI.Services;
 using Microsoft.EntityFrameworkCore;
+using NumerosAleatoriosIO.Services;
 using Radzen;
 using Services;
 
@@ -8,8 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("videogamesdb"));
+builder.Services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("entropiadb"));
 builder.Services.AddScoped<IFuenteService, FuenteService>();
+builder.Services.AddSingleton<IGeneradorService, GeneradorService>();
+builder.Services.AddSingleton<IPruebasEstadisticasService, PruebasEstadisticasService>();
 builder.Services.AddScoped<DialogService>();
 builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<TooltipService>();

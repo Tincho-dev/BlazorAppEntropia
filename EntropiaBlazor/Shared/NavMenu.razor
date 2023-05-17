@@ -9,17 +9,22 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
+@*        <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-list" aria-hidden="true"></span> Fuentes
             </NavLink>
+        </div>*@
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="generador">
+                <span class="oi oi-plus" aria-hidden="true"></span> Numeros Aleatorios
+            </NavLink>
         </div>
 @*        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fuentes">
-                <span class="oi oi-plus" aria-hidden="true"></span> Fuentes
+            <NavLink class="nav-link" href="pruebasEstadisticas">
+                <span class="oi oi-plus" aria-hidden="true"></span> Pruebas Estadisitcas
             </NavLink>
         </div>*@
-        <RadzenFooter>López Rubio Martin - <RadzenIcon Icon="copyright" />Copiright @DateTime.Now.Year - Comunicaciones 2022</RadzenFooter>
+        @*<RadzenFooter>López Rubio Martin - <RadzenIcon Icon="copyright" />Copiright @DateTime.Now.Year - Comunicaciones 2022</RadzenFooter>*@
 
     </nav>
 </div>

@@ -1,0 +1,218 @@
+﻿@page "/Generador"
+@using NumerosAleatoriosIO.Services
+@inject IGeneradorService GeneradorService
+
+<h3>Generador de Números Aleatorios</h3>
+
+<div class="card">
+    <div class="card-body">
+        <label>Tipo de Método:</label>
+        <select class="form-control" @bind="metodoSeleccionado">
+            <option>Elija un Metodo...</option>
+            @foreach (var metodo in metodosDisponibles)
+            {
+                <option value="@metodo">@metodo</option>
+            }
+        </select>
+    </div>
+</div>
+
+@if (!string.IsNullOrEmpty(metodoSeleccionado))
+{
+    <div class="card mt-3">
+        <div class="card-body">
+            @if (metodoSeleccionado == "ParteCentralDelCuadrado")
+            {
+                <div>
+                    <label>Semilla:</label>
+                    <input type="number" class="form-control" @bind="@semilla" />
+                </div>
+                <div>
+                    <label>Dígitos Deseados:</label>
+                    <input type="number" class="form-control" @bind="@digitosDeseados" />
+                </div>
+                <div>
+                    <label>Total de Números a Generar:</label>
+                    <input type="number" class="form-control" @bind="@totalDeNumerosGenerar" />
+                </div>
+            }
+            else @if (metodoSeleccionado == "Lehmer")
+            {
+                <div>
+                    <label>Semilla:</label>
+                    <input type="number" class="form-control" @bind="@semilla" />
+                </div>
+                <div>
+                    <label>Constante Multiplicativa:</label>
+                    <input type="number" class="form-control" @bind="@constanteMultiplicativa" />
+                    @if (constanteMultiplicativa == 0)
+                    {
+                        <div class="text-danger">La constante multiplicativa no puede ser cero. Ingresa otro número.</div>
+                    }
+                </div>
+                <div>
+                    <label>Total de Números a Generar:</label>
+                    <input type="number" class="form-control" @bind="@totalDeNumerosGenerar" />
+                </div>
+            }
+
+            else if (metodoSeleccionado == "CongruencialMixto")
+            {
+                <div>
+                    <label>Semilla:</label>
+                    <input type="number" class="form-control" @bind="@semilla" />
+                </div>
+                <div>
+                    <label>Constante Aditiva:</label>
+                    <input type="number" class="form-control" @bind="@constanteAditiva" />
+                </div>
+                <div>
+                    <label>Constante Multiplicativa:</label>
+                    <input type="number" class="form-control" @bind="@constanteMultiplicativa" />
+                </div>
+                <div>
+                    <label>Módulo:</label>
+                    <input type="number" class="form-control" @bind="@modulo" />
+                </div>
+                <div>
+                    <label>Dígitos:</label>
+                    <input type="number" class="form-control" @bind="@digitos" />
+                </div>
+                <div>
+                    <label>Total de Números a Generar:</label>
+                    <input type="number" class="form-control" @bind="@totalDeNumerosGenerar" />
+                </div>
+            }
+            else if (metodoSeleccionado == "CongruencialMultiplicativo")
+            {
+                <div>
+                    <label>Semilla:</label>
+                    <input type="number" class="form-control" @bind="@semilla" />
+                </div>
+                <div>
+                    <label>Constante Multiplicativa:</label>
+                    <input type="number" class="form-control" @bind="@constanteMultiplicativa" />
+                </div>
+                <div>
+                    <label>Módulo:</label>
+                    <input type="number" class="form-control" @bind="@modulo" />
+                </div>
+                <div>
+                    <label>Total de Números a Generar:</label>
+                    <input type="number" class="form-control" @bind="@totalDeNumerosGenerar" />
+                </div>
+                <div>
+                    <label>Dígitos:</label>
+                    <input type="number" class="form-control" @bind="@digitos" />
+                </div>
+            }
+            else if (metodoSeleccionado == "CongruencialAditivo")
+            {
+                <div>
+                    <label>Lista de Semilla:</label>
+                    <input type="text" class="form-control" @bind="@listaSemillaString" />
+                    <small>Ejemplo: 1,2,3,4</small>
+                </div>
+                <div>
+                    <label>Módulo:</label>
+                    <input type="number" class="form-control" @bind="@modulo" />
+                </div>
+                <div>
+                    <label>Total de Números a Generar:</label>
+                    <input type="number" class="form-control" @bind="@totalDeNumerosGenerar" />
+                </div>
+                <div>
+                    <label>Dígitos:</label>
+                    <input type="number" class="form-control" @bind="@digitos" />
+                </div>
+            }
+        </div>
+    </div>
+}
+<div class="mt-3">
+    <button class="btn btn-primary" @onclick="GenerarNumerosAleatorios">Generar Números Aleatorios</button>
+</div>
+
+@if (numerosGenerados != null)
+{
+    <PruebasEstadisticas Numeros="@numerosGenerados" />
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <h4>Números Generados:</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var numero in numerosGenerados)
+                    {
+                        <tr>
+                            <td>@numero</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+@code {
+    private int semilla;
+    private int digitosDeseados;
+    private int digitos;
+    private int constanteMultiplicativa;
+    private int constanteAditiva;
+    private int modulo;
+    private int totalDeNumerosGenerar;
+    private string listaSemillaString;
+
+    private List<double>
+    numerosGenerados;
+
+    private List<string>
+        metodosDisponibles = new List<string>
+                {
+            "ParteCentralDelCuadrado",
+            "Lehmer",
+            "CongruencialMixto",
+            "CongruencialMultiplicativo",
+            "CongruencialAditivo"
+                };
+    private string metodoSeleccionado;
+
+    private void GenerarNumerosAleatorios()
+    {
+        numerosGenerados = metodoSeleccionado switch
+        {
+            "ParteCentralDelCuadrado" => GeneradorService.ParteCentralDelCuadrado(digitosDeseados, semilla, totalDeNumerosGenerar),
+            "Lehmer" => GeneradorService.Lehmer(semilla, constanteMultiplicativa, totalDeNumerosGenerar),
+            "CongruencialMixto" => GeneradorService.CongruencialMixto(semilla, constanteAditiva, constanteMultiplicativa, modulo, digitos, totalDeNumerosGenerar),
+            "CongruencialMultiplicativo" => GeneradorService.CongruencialMultiplicativo(semilla, constanteMultiplicativa, modulo, totalDeNumerosGenerar, digitos),
+            "CongruencialAditivo" => GeneradorService.CongruencialAditivo(ParseListaSemilla(listaSemillaString), modulo, totalDeNumerosGenerar, digitos),
+            _ => null
+        };
+    }
+
+
+    private List<int>
+        ParseListaSemilla(string listaSemillaString)
+    {
+        List<int>
+            listaSemilla = new List<int>
+                ();
+
+        string[] numeros = listaSemillaString.Split(',');
+
+        foreach (var numero in numeros)
+        {
+            if (int.TryParse(numero, out int parsedNumero))
+            {
+                listaSemilla.Add(parsedNumero);
+            }
+        }
+
+        return listaSemilla;
+    }
+}
