@@ -20,6 +20,10 @@
             <div>
                 <label>Valor de referencia (Zc):</label>
                 <input type="number" class="form-control" @bind="@valorReferencia" />
+                @if (valorReferencia != 0 || valorReferencia != 1)
+                {
+                    <div class="text-danger">El valor de refencia debe ser 0 o 1.</div>
+                }
             </div>
         }
         else if (pruebaSeleccionada == "Frecuencia")
